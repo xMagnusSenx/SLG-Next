@@ -1,0 +1,154 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-gradient {
+    background: radial-gradient(circle, #D5A450 0%, #FDDE83 49%, #DEB158 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+
+.focus-gradient {
+  outline: none;
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.focus-gradient:focus {
+  background: radial-gradient(circle, #D5A450 0%, #FDDE83 49%, #DEB158 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* styles/globals.css или ваш основной CSS файл */
+/* Пример кастомных стилей */
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.button-container::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* Расстояние от нижней части кнопки */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px; /* Толщина черточки */
+  background: radial-gradient(circle, #D5A450 0%, #FDDE83 49%, #DEB158 100%); /* Цвет черточки */
+  opacity: 0.8; /* Прозрачность черточки */
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.button-container:hover::after {
+  width: 100%; /* Увеличиваем ширину черточки при наведении */
+  opacity: 1; /* Делаем черточку более заметной */
+}
+
+
+
+
+/* Обновленный CSS для меню */
+@layer components {
+  .navbar-menu {
+    display: none; /* Скрыть меню по умолчанию */
+    position: absolute; /* Позиционирование меню ниже кнопки */
+    top: 100%; /* Меню будет отображаться ниже кнопки */
+    left: 0; /* Выравнивание по левому краю кнопки */
+    background-color: #000000; /* Замените на сплошной черный фон */
+    border: 1px solid gray; /* Граница меню */
+    z-index: 10; /* Убедиться, что меню находится поверх других элементов */
+    width: 100%; /* Ширина меню */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для лучшего визуального эффекта */
+    border-radius: 8px; /* Скругленные углы */
+  }
+
+  .navbar-menu.open {
+    display: block; /* Показывать меню, если оно открыто */
+  }
+
+  .navbar-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрировать элементы по горизонтали */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+  }
+
+  .navbar-menu li {
+    width: 100%; /* Ширина каждого элемента меню равна ширине меню */
+  }
+}
+
+
+/* Основные стили */
+:root {
+  --primary-gradient: radial-gradient(circle, #D5A450 0%, #FDDE83 49%, #DEB158 100%);
+  --primary-color: #D5A450;
+  --secondary-color: #fff;
+  --tertiary-color: #000;
+  --background-color: #1f1f1f;
+  --text-color: #e1e1e1;
+}
+
+body {
+  background-color: var(--tertiary-color); /* Черный фон */
+  color: var(--text-color); /* Белое золото для текста */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+a {
+  color: var(--primary-color); /* Цвет ссылок */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Пример использования градиента */
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Градиентные полоски для мобильных устройств */
+.menu-icon {
+  background: var(--primary-gradient);
+}
+
+/* Центрирование содержимого */
+.items-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* app/pages/components/styles.css */
+
+
+
+/* Пример кастомных стилей */
+.card {
+  @apply bg-white rounded-lg shadow-md;
+}
+
+.card-image {
+  @apply rounded-full mb-4;
+}
+
+.card-body {
+  @apply text-center;
+}
+
